@@ -1,5 +1,5 @@
 import SearchBar from "./components/search/SearchBar.jsx";
-import Select from "./components/select/Select.jsx";
+import SelectTab from "./components/select/SelectTab.jsx";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <h1>TODO LIST</h1>
 
       <SearchBar />
+      <SelectTab />
     </>
   );
 }

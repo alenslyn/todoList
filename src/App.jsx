@@ -2,6 +2,7 @@ import SearchBar from "./components/search/SearchBar.jsx";
 import SelectTab from "./components/select/SelectTab.jsx";
 import ChangeTheme from "./components/changeTheme/ChangeTheme.jsx";
 import ThemeProvider from "./components/Theme/ThemeProvider.jsx";
+import AddButton from "./components/addbutton/AddButton.jsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <SearchBar />
       <SelectTab />
       <ChangeTheme />
+      <AddButton />
     </ThemeProvider>
   );
 }

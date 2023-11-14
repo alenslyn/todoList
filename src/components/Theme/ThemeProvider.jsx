@@ -3,6 +3,7 @@ import "./theme.css";
 
 export const ThemeContext = createContext("light");
 
+// eslint-disable-next-line react/prop-types
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
 

@@ -24,7 +24,7 @@ export default function CheckboxList() {
   };
 
   return (
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <List sx={{ width: "100%", maxWidth: 360 }}>
       {[0, 1, 2, 3].map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
@@ -48,6 +48,7 @@ export default function CheckboxList() {
                   tabIndex={-1}
                   disableRipple
                   inputProps={{ "aria-labelledby": labelId }}
+                  style={{ color: "rgb(108,99,255)" }}
                 />
               </ListItemIcon>
               <ListItemText id={labelId} primary={`Line item ${value + 1}`} />

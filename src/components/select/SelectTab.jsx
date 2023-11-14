@@ -13,9 +13,11 @@ export default function SelectTab() {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: 120, backgroundColor: "rgb(108,99,255)" }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">ALL</InputLabel>
+        <InputLabel sx={{ color: "white" }} id="demo-simple-select-label">
+          ALL
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

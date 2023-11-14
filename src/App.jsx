@@ -4,6 +4,7 @@ import ChangeTheme from "./components/changeTheme/ChangeTheme.jsx";
 import ThemeProvider from "./components/Theme/ThemeProvider.jsx";
 import List from "./components/list/List.jsx";
 import AddButton from "./components/addbutton/AddButton.jsx";
+import Modal from "./components/modal/Modal.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <ChangeTheme />
       <List />
       <AddButton />
+      <Modal />
     </ThemeProvider>
   );
 }

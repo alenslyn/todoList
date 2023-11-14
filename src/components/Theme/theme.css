@@ -2,6 +2,16 @@
   --black: black;
   --white: white;
 }
+@font-face {
+  font-family: "Kanit-Regular";
+  src: local("Kanit-Regular"),
+    url("public/Kanit/Kanit-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "Kanit-Regular";
+  font-size: medium;
+}
 
 .darkTheme {
   background: var(--black);

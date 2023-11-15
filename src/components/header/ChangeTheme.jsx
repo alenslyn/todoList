@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import IconButton from "@mui/material/IconButton";
 import { ThemeContext } from "../Theme/ThemeProvider";
+import "./ChangeTheme.css";
 
 const ChangeTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -12,6 +13,7 @@ const ChangeTheme = () => {
   return (
     <div>
       <IconButton
+        sx={{ padding: 0 }}
         onClick={() => {
           toggleTheme();
         }}

@@ -6,6 +6,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
+import "./List.css";
 
 export default function CheckboxList() {
   const [checked, setChecked] = React.useState([0]);
@@ -44,14 +45,18 @@ export default function CheckboxList() {
               <ListItemIcon>
                 <Checkbox
                   edge="start"
-                  checked={checked.indexOf(value) !== -1}
+                  //   checked={checked.indexOf(value) !== -1}
                   tabIndex={-1}
                   disableRipple
                   inputProps={{ "aria-labelledby": labelId }}
                   style={{ color: "rgb(108,99,255)" }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText
+                id={labelId}
+                primary={`Line item ${value + 1}`}
+                // className={checked ? "list-item" : ""}
+              />
             </ListItemButton>
           </ListItem>
         );

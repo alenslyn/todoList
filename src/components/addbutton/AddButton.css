@@ -1,0 +1,6 @@
+.add_button {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 27em;
+  margin-top: 20em;
+}

@@ -25,12 +25,13 @@ export default function CheckboxList() {
   };
 
   return (
-    <List sx={{ width: "100%", maxWidth: 360 }}>
+    <List sx={{ width: "100%", maxWidth: 1000 }}>
       {[0, 1, 2, 3].map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
           <ListItem
+            className="list"
             key={value}
             secondaryAction={
               <IconButton edge="end" aria-label="comments"></IconButton>

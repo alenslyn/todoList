@@ -1,3 +1,9 @@
 .list-item {
   text-decoration: line-through;
 }
+.list {
+  padding-left: 33em;
+}
+.list_text {
+  font-size: large;
+}

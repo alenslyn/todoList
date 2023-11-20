@@ -5,6 +5,7 @@ const todoSlice = createSlice({
   initialState: { todos: [] },
   reducers: {
     addTodo: (state, payload) => {
+      console.log("123", payload);
       const newTodo = {
         id: payload.id,
         label: payload.label,
@@ -13,6 +14,6 @@ const todoSlice = createSlice({
     },
   },
 });
-
+console.log(todoSlice);
 export const { addTodo } = todoSlice.actions;
-export default todoSlice.reducers;
+export default todoSlice.reducer;

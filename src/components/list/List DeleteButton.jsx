@@ -1,6 +1,6 @@
 import IconButton from "@mui/material/IconButton";
 
-const AddButton = () => {
+const ListDeleteButton = () => {
   return (
     <div>
       <IconButton>
@@ -9,4 +9,4 @@ const AddButton = () => {
     </div>
   );
 };
-export default AddButton;
+export default ListDeleteButton;

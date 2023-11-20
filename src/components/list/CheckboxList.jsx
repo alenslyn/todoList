@@ -6,7 +6,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
-import "./List.css";
+import "./CheckBox.css";
 
 export default function CheckboxList() {
   const [checked, setChecked] = React.useState([0]);
@@ -25,7 +25,7 @@ export default function CheckboxList() {
   };
 
   return (
-    <List sx={{ width: "100%", maxWidth: 1000 }}>
+    <List sx={{ width: "100%", maxWidth: 1100 }}>
       {[0, 1, 2, 3].map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 

@@ -1,11 +1,7 @@
 import InputNewNote from "./InputNewNote";
 import CancelButton from "./CancelButton";
 import ApplyButton from "./ApplyButton";
-
-import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { hideModal } from "../../redux/modalSlice";

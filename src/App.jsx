@@ -1,5 +1,5 @@
 import ThemeProvider from "./components/Theme/ThemeProvider.jsx";
-import FullList from "./components/list/FullList.jsx";
+import CheckboxList from "./components/list/CheckboxList.jsx";
 import AddButton from "./components/addbutton/AddButton.jsx";
 import Modal from "./components/modal/Modal.jsx";
 import Header from "./components/header/Header.jsx";
@@ -13,7 +13,7 @@ function App() {
       <ThemeProvider>
         <h1 className="todo">TODO LIST</h1>
         <Header />
-        <FullList />
+        <CheckboxList />
         <AddButton />
         <Modal />
       </ThemeProvider>

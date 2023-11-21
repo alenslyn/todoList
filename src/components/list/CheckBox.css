@@ -2,7 +2,9 @@
   text-decoration: line-through;
 }
 .list {
-  padding-left: 20em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .list_text {
   font-size: large;

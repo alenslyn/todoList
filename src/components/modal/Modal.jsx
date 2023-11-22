@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { hideModal } from "../../redux/modalSlice";
+import { useState } from "react";
 
 const style = {
   position: "absolute",
@@ -19,6 +20,7 @@ const style = {
 };
 
 export default function BasicModal() {
+  const [text, setText] = useState("");
   const isModalShow = useSelector((state) => state.modal.value);
   const dispatch = useDispatch();
 
@@ -31,11 +33,17 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <InputNewNote id="modal-modal-title" variant="h6" component="h2">
+          <InputNewNote
+            value={text}
+            new={setText}
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+          >
             Text in a modal
           </InputNewNote>
           <CancelButton onClick={() => dispatch(hideModal())} />
-          <ApplyButton />
+          <ApplyButton setText={setText} text={text} />
         </Box>
       </Modal>
     </div>

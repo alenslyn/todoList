@@ -13,7 +13,7 @@ const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, payload) => {
+    addTodo: (state, { payload }) => {
       console.log("123", payload);
       const newTodo = {
         id: payload.id,

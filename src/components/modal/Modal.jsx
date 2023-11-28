@@ -20,15 +20,28 @@ const style = {
 };
 
 export default function BasicModal() {
-  const [text, setText] = useState("");
+  const options = useSelector((state) => {
+    if (state.modal.options) {
+      return state.modal.options;
+    } else {
+      return {};
+    }
+  });
+
+  const [text, setText] = useState(options.label || "");
   const isModalShow = useSelector((state) => state.modal.value);
   const dispatch = useDispatch();
+
+  const onClose = () => {
+    setText("");
+    dispatch(hideModal());
+  };
 
   return (
     <div>
       <Modal
         open={isModalShow}
-        onClose={() => dispatch(hideModal())}
+        onClose={onClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -42,7 +55,7 @@ export default function BasicModal() {
           >
             Text in a modal
           </InputNewNote>
-          <CancelButton onClick={() => dispatch(hideModal())} />
+          <CancelButton onClose={onClose} />
           <ApplyButton setText={setText} text={text} />
         </Box>
       </Modal>

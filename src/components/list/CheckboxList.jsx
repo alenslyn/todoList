@@ -5,7 +5,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
 import "./CheckBox.css";
 import { useSelector } from "react-redux";
 import ListEditButton from "./ListEditButton";
@@ -57,7 +56,7 @@ export default function CheckboxList() {
                   // className={checked ? "list-item" : ""}
                 />
               </ListItemButton>
-              <ListEditButton />
+              <ListEditButton todo={{ id: value, label }} />
               <ListDeleteButton id={value} />
             </ListItem>
           );

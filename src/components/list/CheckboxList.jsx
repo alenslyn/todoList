@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import "./CheckBox.css";
 import { useSelector } from "react-redux";
 import ListEditButton from "./ListEditButton";
-import ListDeleteButton from "./List DeleteButton";
+import ListDeleteButton from "./ListDeleteButton";
 
 export default function CheckboxList() {
   const [checked, setChecked] = React.useState([0]);
@@ -35,13 +35,7 @@ export default function CheckboxList() {
           const labelId = `checkbox-list-label-${value}`;
 
           return (
-            <ListItem
-              key={value}
-              secondaryAction={
-                <IconButton edge="end" aria-label="comments"></IconButton>
-              }
-              disablePadding
-            >
+            <ListItem key={value} disablePadding>
               <ListItemButton
                 role={undefined}
                 onClick={handleToggle(value)}
@@ -64,7 +58,7 @@ export default function CheckboxList() {
                 />
               </ListItemButton>
               <ListEditButton />
-              <ListDeleteButton />
+              <ListDeleteButton id={value} />
             </ListItem>
           );
         })}

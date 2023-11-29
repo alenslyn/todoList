@@ -42,7 +42,7 @@ const TodoForm = () => {
         Text in a modal
       </InputNewNote>
       <CancelButton onClose={onClose} />
-      <ApplyButton setText={setText} text={text} />
+      <ApplyButton id={options.id} setText={setText} text={text} />
     </Box>
   );
 };

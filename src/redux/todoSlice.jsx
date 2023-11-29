@@ -2,9 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   todos: [
-    { id: 1, label: "kakoihocheh", checked: false },
-    { id: 2, label: "kakoihocheh2", checked: true },
-    { id: 3, label: "kakoihocheh3", checked: false },
+    { id: 1, label: "Stretch for 10 min", checked: false },
+    {
+      id: 2,
+      label: "Brainstorm what goes on landing page for 40m",
+      checked: true,
+    },
+    { id: 3, label: "Arrange date night with my partner", checked: false },
   ],
 };
 
@@ -13,13 +17,21 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, { payload }) => {
-      console.log("123", payload);
-      const newTodo = {
-        id: payload.id,
-        label: payload.label,
-        checked: false,
-      };
-      state.todos.push(newTodo);
+      console.log(payload);
+      if (payload.id === undefined) {
+        const newTodo = {
+          id: payload.id,
+          label: payload.label,
+          checked: false,
+        };
+        return state.todos.push(newTodo);
+      } else {
+        const index = state.todos.findIndex(
+          (element) => element.id === payload.id
+        );
+        const elem = state.todos[index];
+        state.todos[index] = { ...elem, label: payload.label };
+      }
     },
     deleteTodo: (state, { payload }) => {
       const { id } = payload;

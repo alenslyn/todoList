@@ -15,7 +15,10 @@ export default function ApplyButton({ text, setText, id }) {
           dispatch(addTodo({ label: text, id: id }));
           setText("");
         }}
-        style={{ background: "rgb(108,99,255)", color: "white" }}
+        style={{
+          background: "rgb(108,99,255)",
+          color: "white",
+        }}
         variant="outlined"
       >
         Apply

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import CancelButton from "./CancelButton";
 import ApplyButton from "./ApplyButton";
 import Box from "@mui/material/Box";
+import "./CancelApply.css";
 
 const style = {
   position: "absolute",
@@ -41,8 +42,10 @@ const TodoForm = () => {
       >
         Text in a modal
       </InputNewNote>
-      <CancelButton onClose={onClose} />
-      <ApplyButton id={options.id} setText={setText} text={text} />
+      <div className="cancelapply">
+        <CancelButton onClose={onClose} />
+        <ApplyButton id={options.id} setText={setText} text={text} />
+      </div>
     </Box>
   );
 };

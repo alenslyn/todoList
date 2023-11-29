@@ -20,11 +20,11 @@ const todoSlice = createSlice({
       console.log(payload);
       if (payload.id === undefined) {
         const newTodo = {
-          id: payload.id,
+          id: (Math.random() * 100000).toFixed(0),
           label: payload.label,
           checked: false,
         };
-        return state.todos.push(newTodo);
+        state.todos.push(newTodo);
       } else {
         const index = state.todos.findIndex(
           (element) => element.id === payload.id

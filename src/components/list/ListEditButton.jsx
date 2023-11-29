@@ -15,7 +15,7 @@ const ListEditButton = ({ todo }) => {
 };
 
 ListEditButton.propTypes = {
-  todo: PropTypes.objectOf({
+  todo: PropTypes.shape({
     id: PropTypes.number,
     label: PropTypes.string,
   }),

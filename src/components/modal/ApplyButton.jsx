@@ -27,5 +27,5 @@ export default function ApplyButton({ text, setText }) {
 }
 ApplyButton.propTypes = {
   text: PropTypes.string.isRequired,
-  setText: PropTypes.string.isRequired,
+  setText: PropTypes.func.isRequired,
 };

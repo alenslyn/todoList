@@ -15,6 +15,6 @@ const ListDeleteButton = ({ id }) => {
   );
 };
 ListDeleteButton.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default ListDeleteButton;

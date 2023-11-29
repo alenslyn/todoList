@@ -1,13 +1,13 @@
 import { TextField } from "@mui/material";
 import PropTypes from "prop-types";
 
-const InputNewNote = (props) => {
+const InputNewNote = ({ value, newText }) => {
   return (
     <form noValidate autoComplete="off">
       <TextField
-        value={props.value}
+        value={value}
         onChange={(event) => {
-          props.new(event.target.value);
+          newText(event.target.value);
         }}
         id="outlined-basic"
         placeholder="Input your note"
@@ -18,7 +18,7 @@ const InputNewNote = (props) => {
 
 InputNewNote.propTypes = {
   value: PropTypes.string.isRequired,
-  new: PropTypes.string.isRequired,
+  newText: PropTypes.func.isRequired,
 };
 
 export default InputNewNote;

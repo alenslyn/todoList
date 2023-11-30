@@ -56,17 +56,12 @@ export default function CheckboxList() {
                     <Checkbox
                       edge="start"
                       checked={checked}
-                      // tabIndex={-1}
                       disableRipple
                       inputProps={{ "aria-labelledby": labelId }}
                       style={{ color: "rgb(108,99,255)" }}
                     />
                   </ListItemIcon>
-                  <ListItemText
-                    id={labelId}
-                    primary={label}
-                    // className={checked ? "list-item" : ""}
-                  />
+                  <ListItemText id={labelId} primary={label} />
                 </ListItemButton>
                 <ListEditButton todo={{ id: value, label }} />
                 <ListDeleteButton id={value} />

@@ -28,6 +28,7 @@ export default function CheckboxList() {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos.todos);
   const checkedTodo = useSelector((state) => state.select.checked);
+  const search = useSelector((state) => state.search.value);
 
   const handleToggle = (checked, id) => () => {
     dispatch(updateTodoList({ checked: !checked, id: id }));
@@ -38,6 +39,9 @@ export default function CheckboxList() {
       <List sx={{ width: "100%", maxWidth: 700 }}>
         {todos
           .filter((todo) => filterFn(checkedTodo, todo))
+          .filter(({ label }) =>
+            label.toLowerCase().includes(search.toLowerCase())
+          )
           .map(({ id: value, label, checked }) => {
             const labelId = `checkbox-list-label-${value}`;
 

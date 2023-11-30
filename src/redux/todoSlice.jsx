@@ -16,7 +16,7 @@ const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, { payload }) => {
+    updateTodoList: (state, { payload }) => {
       console.log(payload);
       if (payload.id === undefined) {
         const newTodo = {
@@ -30,7 +30,7 @@ const todoSlice = createSlice({
           (element) => element.id === payload.id
         );
         const elem = state.todos[index];
-        state.todos[index] = { ...elem, label: payload.label };
+        state.todos[index] = { ...elem, ...payload };
       }
     },
     deleteTodo: (state, { payload }) => {
@@ -41,5 +41,5 @@ const todoSlice = createSlice({
   },
 });
 console.log(todoSlice);
-export const { addTodo, deleteTodo } = todoSlice.actions;
+export const { updateTodoList, deleteTodo } = todoSlice.actions;
 export default todoSlice.reducer;

@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { hideModal } from "../../redux/modalSlice";
-import { addTodo } from "../../redux/todoSlice";
+import { updateTodoList } from "../../redux/todoSlice";
 import PropTypes from "prop-types";
 
 export default function ApplyButton({ text, setText, id }) {
@@ -12,7 +12,7 @@ export default function ApplyButton({ text, setText, id }) {
       <Button
         onClick={() => {
           dispatch(hideModal());
-          dispatch(addTodo({ label: text, id: id }));
+          dispatch(updateTodoList({ label: text, id: id }));
           setText("");
         }}
         style={{

@@ -40,6 +40,6 @@ const todoSlice = createSlice({
     },
   },
 });
-console.log(todoSlice);
+
 export const { updateTodoList, deleteTodo } = todoSlice.actions;
 export default todoSlice.reducer;

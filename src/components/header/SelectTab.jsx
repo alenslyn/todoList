@@ -4,12 +4,16 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import "./SelectTab.css";
+import { setChecked, ALL, COMPLETE, INCOMPLETE } from "../../redux/selectSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function SelectTab() {
-  const [note, setNote] = React.useState("");
+  const dispatch = useDispatch();
+  const checked = useSelector((state) => state.select.checked);
 
   const handleChange = (event) => {
-    setNote(event.target.value);
+    dispatch(setChecked(event.target.value));
   };
 
   return (
@@ -19,14 +23,14 @@ export default function SelectTab() {
           className="select_button"
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={note}
+          value={checked}
           onChange={handleChange}
         >
-          <MenuItem className="menu_item" value={1}>
+          <MenuItem className="menu_item" value={ALL}>
             All
           </MenuItem>
-          <MenuItem value={2}>Complete</MenuItem>
-          <MenuItem value={3}>Incomplete</MenuItem>
+          <MenuItem value={COMPLETE}>Complete</MenuItem>
+          <MenuItem value={INCOMPLETE}>Incomplete</MenuItem>
         </Select>
       </FormControl>
     </Box>

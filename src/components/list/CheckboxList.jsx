@@ -10,10 +10,24 @@ import { useSelector } from "react-redux";
 import ListEditButton from "./ListEditButton";
 import ListDeleteButton from "./ListDeleteButton";
 import { updateTodoList } from "../../redux/todoSlice";
+import { ALL, COMPLETE, INCOMPLETE } from "../../redux/selectSlice";
+
+const filterFn = (checked, todo) => {
+  if (checked === COMPLETE) {
+    return todo.checked;
+  }
+  if (checked === INCOMPLETE) {
+    return !todo.checked;
+  }
+  if (checked === ALL) {
+    return true;
+  }
+};
 
 export default function CheckboxList() {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos.todos);
+  const checkedTodo = useSelector((state) => state.select.checked);
 
   const handleToggle = (checked, id) => () => {
     dispatch(updateTodoList({ checked: !checked, id: id }));
@@ -22,37 +36,39 @@ export default function CheckboxList() {
   return (
     <div className="list">
       <List sx={{ width: "100%", maxWidth: 700 }}>
-        {todos.map(({ id: value, label, checked }) => {
-          const labelId = `checkbox-list-label-${value}`;
+        {todos
+          .filter((todo) => filterFn(checkedTodo, todo))
+          .map(({ id: value, label, checked }) => {
+            const labelId = `checkbox-list-label-${value}`;
 
-          return (
-            <ListItem key={value} disablePadding>
-              <ListItemButton
-                role={undefined}
-                onClick={handleToggle(checked, value)}
-                dense
-              >
-                <ListItemIcon>
-                  <Checkbox
-                    edge="start"
-                    checked={checked}
-                    // tabIndex={-1}
-                    disableRipple
-                    inputProps={{ "aria-labelledby": labelId }}
-                    style={{ color: "rgb(108,99,255)" }}
+            return (
+              <ListItem key={value} disablePadding>
+                <ListItemButton
+                  role={undefined}
+                  onClick={handleToggle(checked, value)}
+                  dense
+                >
+                  <ListItemIcon>
+                    <Checkbox
+                      edge="start"
+                      checked={checked}
+                      // tabIndex={-1}
+                      disableRipple
+                      inputProps={{ "aria-labelledby": labelId }}
+                      style={{ color: "rgb(108,99,255)" }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    id={labelId}
+                    primary={label}
+                    // className={checked ? "list-item" : ""}
                   />
-                </ListItemIcon>
-                <ListItemText
-                  id={labelId}
-                  primary={label}
-                  // className={checked ? "list-item" : ""}
-                />
-              </ListItemButton>
-              <ListEditButton todo={{ id: value, label }} />
-              <ListDeleteButton id={value} />
-            </ListItem>
-          );
-        })}
+                </ListItemButton>
+                <ListEditButton todo={{ id: value, label }} />
+                <ListDeleteButton id={value} />
+              </ListItem>
+            );
+          })}
       </List>
     </div>
   );

@@ -36,39 +36,50 @@ export default function CheckboxList() {
 
   return (
     <div className="list">
-      <List sx={{ width: "100%", maxWidth: 700 }}>
-        {todos
-          .filter((todo) => filterFn(checkedTodo, todo))
-          .filter(({ label }) =>
-            label.toLowerCase().includes(search.toLowerCase())
-          )
-          .map(({ id: value, label, checked }) => {
-            const labelId = `checkbox-list-label-${value}`;
+      {todos.length === 0 ? (
+        <div className="empty_full">
+          <img src="images/Detectivelight.png" alt="detective" />
+          <p className="empty">Empty...</p>
+        </div>
+      ) : (
+        <List sx={{ width: "100%", maxWidth: 700 }}>
+          {todos
+            .filter((todo) => filterFn(checkedTodo, todo))
+            .filter(({ label }) =>
+              label.toLowerCase().includes(search.toLowerCase())
+            )
+            .map(({ id: value, label, checked }) => {
+              const labelId = `checkbox-list-label-${value}`;
 
-            return (
-              <ListItem key={value} disablePadding>
-                <ListItemButton
-                  role={undefined}
-                  onClick={handleToggle(checked, value)}
-                  dense
+              return (
+                <ListItem
+                  sx={{ borderBottom: 0.5, borderColor: "rgb(108,99,255)" }}
+                  key={value}
+                  disablePadding
                 >
-                  <ListItemIcon>
-                    <Checkbox
-                      edge="start"
-                      checked={checked}
-                      disableRipple
-                      inputProps={{ "aria-labelledby": labelId }}
-                      style={{ color: "rgb(108,99,255)" }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText id={labelId} primary={label} />
-                </ListItemButton>
-                <ListEditButton todo={{ id: value, label }} />
-                <ListDeleteButton id={value} />
-              </ListItem>
-            );
-          })}
-      </List>
+                  <ListItemButton
+                    role={undefined}
+                    onClick={handleToggle(checked, value)}
+                    dense
+                  >
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={checked}
+                        disableRipple
+                        inputProps={{ "aria-labelledby": labelId }}
+                        style={{ color: "rgb(108,99,255)" }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText id={labelId} primary={label} />
+                  </ListItemButton>
+                  <ListEditButton todo={{ id: value, label }} />
+                  <ListDeleteButton id={value} />
+                </ListItem>
+              );
+            })}
+        </List>
+      )}
     </div>
   );
 }

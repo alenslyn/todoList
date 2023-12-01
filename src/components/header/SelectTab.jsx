@@ -24,12 +24,17 @@ export default function SelectTab() {
           id="demo-simple-select"
           value={checked}
           onChange={handleChange}
+          sx={{ color: "white" }}
         >
-          <MenuItem className="menu_item" value={ALL}>
+          <MenuItem sx={{ color: "rgb(108,99,255)" }} value={ALL}>
             All
           </MenuItem>
-          <MenuItem value={COMPLETE}>Complete</MenuItem>
-          <MenuItem value={INCOMPLETE}>Incomplete</MenuItem>
+          <MenuItem sx={{ color: "rgb(108,99,255)" }} value={COMPLETE}>
+            Complete
+          </MenuItem>
+          <MenuItem sx={{ color: "rgb(108,99,255)" }} value={INCOMPLETE}>
+            Incomplete
+          </MenuItem>
         </Select>
       </FormControl>
     </Box>
